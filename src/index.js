@@ -4,6 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import WebFontLoader from 'webfontloader';
+
+WebFontLoader.load({
+    google: {
+        families: ['Roboto:300,400,500,700', 'Material Icons'],
+    },
+});
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
