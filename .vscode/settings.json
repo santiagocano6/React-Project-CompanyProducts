@@ -6,4 +6,7 @@
     "files.insertFinalNewline": true,
     "files.encoding": "utf8",
     "prettier.endOfLine": "lf",
+    "files.exclude": {
+        "**/*.css": true
+    }
 }

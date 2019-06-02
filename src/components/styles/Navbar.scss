@@ -1,0 +1,24 @@
+.menu {
+    background-color: #c9c9c9;
+    height: 50px;
+    text-align: center;
+}
+
+.menu-item {
+    display: inline-block;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.menu-item-link {
+    text-decoration: none;
+    color: black;
+}
+
+.menu-item:hover {
+    background-color: #aca2a2;
+}
+
+.menu-item-selected {
+    background-color: #858484;
+}

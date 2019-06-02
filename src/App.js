@@ -1,24 +1,24 @@
 import React from 'react';
-import { NavigationDrawer } from 'react-md';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import './App.css';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Clients from './pages/Clients';
+import Contact from './pages/Contact';
+import NotMatch from './components/NotMatch';
 
 function App() {
     return (
-        <NavigationDrawer
-            drawerTitle="react-md with CRA"
-            toolbarTitle="Welcome to react-md"
-        >
-            <div className="App">
-                <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-            </div>
-        </NavigationDrawer>
+        <Router>
+            <Navbar/>
+            <Route exact path="/" component={Home} />
+            <Route path="/home" component={Home} />
+            <Route path="/products" component={Products} />
+            <Route path="/clients" component={Clients} />
+            <Route path="/contact" component={Contact} />
+        </Router>
     );
 }
 
