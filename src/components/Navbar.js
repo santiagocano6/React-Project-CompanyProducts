@@ -35,14 +35,11 @@ class Navbar extends React.Component {
             return (
                 <div className='menu'>
                     {menuItems.map(menuItem => 
-                        <div className={`menu-item ${this.state.active === menuItem.toLowerCase() ? 'menu-item-selected' : {}}`}
-                            key={menuItem}
-                        >
-                            <Link className='menu-item-link'
-                                to={`/${menuItem.toLowerCase()}`}
-                                onClick={this._handleClick.bind(this, menuItem)}
-                            >{menuItem}</Link>
-                        </div>
+                        <Link key={menuItem}
+                            className={`menu-item ${this.state.active === menuItem.toLowerCase() ? 'menu-item-selected' : {}}`}
+                            to={`/${menuItem.toLowerCase()}`}
+                            onClick={this._handleClick.bind(this, menuItem)}
+                        >{menuItem}</Link>
                     )}
                 </div>
             )

@@ -1,0 +1,42 @@
+$border-format: 1.5px solid #c9c9c9;
+
+.product {
+    height: 100vh;
+}
+
+.product > div {
+    float: left;
+    height: 100%;
+    padding-top: 10px;
+}
+
+.product-categories {
+    background-color: white;
+    width: 28%;
+    border-right: $border-format;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-category-list {
+    width: 72%;
+}
+
+.product-categories-tittle {
+    color: #8d8c8c;
+    font-size: 18px;
+}
+
+.product-categories-head {
+    border-bottom: $border-format;
+    padding-bottom: 5px;
+}
+
+.product-categories-list {
+    
+}
+
+.selectable-item:hover {
+    background-color: #d1cfcf;
+    cursor: pointer;
+}
