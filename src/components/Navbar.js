@@ -15,7 +15,15 @@ class Navbar extends React.Component {
     state = {}
 
     componentDidMount(){
-        let currentMenu = menuItems.find(menu => this.props.location.pathname.toLocaleLowerCase().includes(menu.toLocaleLowerCase()))
+        let currentMenu;
+
+        if(this.props.location.pathname === '/') {
+            currentMenu = 'HOME'
+        }
+        else {
+            currentMenu = menuItems.find(menu => this.props.location.pathname.toLocaleLowerCase().includes(menu.toLocaleLowerCase()))
+        }
+
         this.setState({ active: currentMenu ? currentMenu.toLocaleLowerCase() : ''})
     }
 
