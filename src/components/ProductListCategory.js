@@ -6,7 +6,8 @@ class ProductListCategory extends React.Component {
     render() {
         return (
             <React.Fragment>
-                ProductListCategory
+                <div className="product-list-head">Showing 10 products - hidden 5</div>
+                <div>{this.props.category}</div>
             </React.Fragment>
         )
     }
