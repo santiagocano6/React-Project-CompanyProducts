@@ -1,0 +1,37 @@
+{
+    "info": {
+        "category": "all",
+        "totalproducts": 10,
+        "hiddenproducts": 5
+    },
+    "products": [{
+        "id": 1,
+        "name": "El dragon",
+        "brand": "Chevrolet",
+        "categories": ["Tech", "Services"],
+        "description": "anythin ganythinganyth inganything anythingany thinganythin ganything anythinga nythinga nythingan ything anyth inganythinga nythinga nything",
+        "photo": "https://ichef.bbci.co.uk/news/320/cpsprodpb/3E7D/production/_105579951_carro.jpg",
+        "price": 2000000,
+        "stock": 100
+    },
+    {
+        "id": 2,
+        "name": "El dragon",
+        "brand": "Chevrolet",
+        "categories": ["Tech", "Services"],
+        "description": "anything",
+        "photo": "https://ichef.bbci.co.uk/news/320/cpsprodpb/3E7D/production/_105579951_carro.jpg",
+        "price": 2000000,
+        "stock": 100
+    },
+    {
+        "id": 3,
+        "name": "El dragon",
+        "brand": "Chevrolet",
+        "categories": ["Tech", "Services"],
+        "description": "anything",
+        "photo": "https://ichef.bbci.co.uk/news/320/cpsprodpb/3E7D/production/_105579951_carro.jpg",
+        "price": 2000000,
+        "stock": 100
+    }]
+}

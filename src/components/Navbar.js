@@ -5,8 +5,8 @@ import './styles/Navbar.css'
 
 const menuItems = [
     'HOME',
-    'CLIENTS',
     'PRODUCTS',
+    'CLIENTS',
     'CONTACT'
  ];
 
@@ -33,14 +33,16 @@ class Navbar extends React.Component {
 
     render() {
             return (
-                <div className='menu'>
-                    {menuItems.map(menuItem => 
-                        <Link key={menuItem}
-                            className={`menu-item ${this.state.active === menuItem.toLowerCase() ? 'menu-item-selected' : {}}`}
-                            to={`/${menuItem.toLowerCase()}`}
-                            onClick={this._handleClick.bind(this, menuItem)}
-                        >{menuItem}</Link>
-                    )}
+                <div className='main-bar'>
+                    <div className='menu'>
+                        {menuItems.map(menuItem => 
+                            <Link key={menuItem}
+                                className={`menu-item ${this.state.active === menuItem.toLowerCase() ? 'menu-item-selected' : {}}`}
+                                to={`/${menuItem.toLowerCase()}`}
+                                onClick={this._handleClick.bind(this, menuItem)}
+                            >{menuItem}</Link>
+                        )}
+                    </div>
                 </div>
             )
         }

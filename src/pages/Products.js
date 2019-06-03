@@ -9,12 +9,20 @@ class Products extends React.Component {
     state = {}
 
     componentDidMount() {
-        let url = this.props.location.pathname.substring(10)
+        this.setLocation(this.props.location)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setLocation(nextProps.location)
+    }
+
+    setLocation(location) {
+        let url = location.pathname.substring(10)
         if(!url) {
             url = 'all'
         }
 
-        this.setState({category: url})
+        this.setState({category: url.toLowerCase()})
     }
 
     handleClick(category) {
@@ -28,28 +36,29 @@ class Products extends React.Component {
                 <div className='product-categories'>
                     <div className='product-categories-head'>
                         <div className='product-categories-tittle'>Categories</div>
-                        <div className={`product-categories-item selectable-item ${this.state.category === 'all' ? 'product-categories-item-selected' : {}}`}
-                            onClick={() => this.handleClick('all')}>
+                        <Link to='/products/all'
+                            className={`product-categories-item selectable-item ${this.state.category === 'all' ? 'product-categories-item-selected' : ''}`}
+                        >
                             <i className='material-icons product-categories-item-icon' id='scr'>list</i>
                             <span>All</span>
-                        </div>
+                        </Link>
                     </div>
                     <div>
-                        <div className={`product-categories-item selectable-item ${this.state.category === 'tech' ? 'product-categories-item-selected' : {}}`}
-                        onClick={() => this.handleClick('tech')}>
+                        <Link to='/products/tech'
+                        className={`product-categories-item selectable-item ${this.state.category === 'tech' ? 'product-categories-item-selected' : ''}`}>
                             <i className='material-icons product-categories-item-icon' id='scr'>laptop</i>
                             <span>Tech</span>
-                        </div>
-                        <div className={`product-categories-item selectable-item ${this.state.category === 'services' ? 'product-categories-item-selected' : {}}`}
-                        onClick={() => this.handleClick('services')}>
+                        </Link>
+                        <Link to='/products/services'
+                        className={`product-categories-item selectable-item ${this.state.category === 'services' ? 'product-categories-item-selected' : ''}`}>
                             <i className='material-icons product-categories-item-icon' id='scr'>build</i>
                             <span>Services</span>
-                        </div>
-                        <div className={`product-categories-item selectable-item ${this.state.category === 'office' ? 'product-categories-item-selected' : {}}`}
-                        onClick={() => this.handleClick('office')}>
+                        </Link>
+                        <Link to='/products/office'
+                        className={`product-categories-item selectable-item ${this.state.category === 'office' ? 'product-categories-item-selected' : ''}`}>
                             <i className='material-icons product-categories-item-icon' id='scr'>folder</i>
                             <span>Office</span>
-                        </div>
+                        </Link>
                     </div>
                     
                 </div>
