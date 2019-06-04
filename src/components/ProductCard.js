@@ -11,7 +11,7 @@ function ProductCard(props) {
             <CardText>
                 <Grid>
                     <Cell size={4} className="card-image-container">
-                        <img className="card-image" src={props.product.photo} alt={`Image for ${props.product.name}`}/>
+                        <img className="card-image" src={props.product.photo} alt={props.product.name}/>
                     </Cell>
                     <Cell size={8}>
                         <div className='product-card-detail-info'>

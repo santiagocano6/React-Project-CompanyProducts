@@ -1,15 +1,15 @@
 $border-format: 1px solid #c9c9c9;
 
 .product {
-    > div {
-        height: 100%;
-        
+    .product-categories-min {
+        border-top:1px solid #ffffff;
     }
 
     .product-categories-full {
         float: left;
         border-right: $border-format;
         padding-top: 10px;
+        height: calc(100vh - 50px);
     }
 
     .product-category-list {
@@ -18,16 +18,21 @@ $border-format: 1px solid #c9c9c9;
         padding-right: 15px;
         overflow: auto;
         padding-top: 10px;
+        max-height: calc(100vh - 50px);
     }
 }
 
-.product-categories-min {
-    background-color: red;
-}
-
 @media screen and (max-width: 650px) {
-    .product-categories-full {
-        display: none;
+    .product {
+        .product-categories-full {
+            display: none;
+        }
+
+        .product-category-list {
+            width: 100%;
+            height: 100%;
+            max-height: calc(100vh - 110px);
+        } 
     }
 }
 
