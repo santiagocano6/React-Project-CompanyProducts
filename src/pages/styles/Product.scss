@@ -1,73 +1,64 @@
 $border-format: 1px solid #c9c9c9;
-$product-categories-widht: 28%;
-
-@media (min-width: 1100px) {
-    $product-categories-widht: 18%;
-}
 
 .product {
-    height: 100vh;
-
     > div {
-        float: left;
         height: 100%;
+        
+    }
+
+    .product-categories-full {
+        float: left;
+        border-right: $border-format;
         padding-top: 10px;
     }
 
-    .product-categories {
-        background-color: white;
-        width: $product-categories-widht;
-        border-right: $border-format;
+    .product-category-list {
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow: auto;
+        padding-top: 10px;
+    }
+}
+
+.product-categories-min {
+    background-color: red;
+}
+
+@media screen and (max-width: 650px) {
+    .product-categories-full {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 651px) and (max-width: 1100px) {
+    .product-categories-min {
+        display: none;
+    }
+
+    .product-categories-full {
+        width: 18%;
         display: flex;
         flex-direction: column;
-        
-        .selectable-item:hover {
-            background-color: #dad6d6;
-            cursor: pointer;
-        }
-     
-        .product-categories-item-selected {
-            background-color: #dfdfdf;
-        }
-
-        .product-categories-item {
-            padding-top: 7px;
-            padding-bottom: 7px;
-            padding-left: 15px;
-            display: block;
-            text-decoration: none;
-            color: #000000;
-
-            .product-categories-item-icon {
-                background-color: #8d8a8a;
-                border-radius: 50%;
-                padding: 7px;
-                filter: invert(100%);
-            }
-
-            span {
-                margin-left: 10px;
-                position: relative;
-                bottom: 7px;
-            }
-        }
-
-        .product-categories-head {
-            border-bottom: $border-format;
-            padding-bottom: 5px;
-        
-            .product-categories-tittle {
-                color: #8d8c8c;
-                font-size: 18px;
-                padding-left: 15px;
-                margin-bottom: 10px;
-            }
-        }
     }
 
     .product-category-list {
-        width: 100% - $product-categories-widht;
-        padding-left: 15px;
-        padding-right: 15px;
+        width: 82%;
+    }
+}
+
+@media screen and (min-width: 1101px) {
+    .product-categories-min {
+        display: none;
+    }
+
+    .product-categories-full {
+        width: 28%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-category-list {
+        width: 72%;
     }
 }

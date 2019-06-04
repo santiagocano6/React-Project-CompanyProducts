@@ -1,0 +1,27 @@
+.product-categories-min-main{
+    background-color: #c9c9c9;
+}
+
+.product-categories-min-menu {
+    height: 50px;
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+.product-categories-min-menu-item {
+    display: inline-block;
+    font-weight: bold;
+    padding: 15px 0px;
+    text-decoration: none;
+    color: black;
+    width: 25%;
+}
+
+.product-categories-min-menu-item:hover {
+    background-color: #dfdfdf;
+}
+
+.product-categories-min-menu-item-selected {
+    background-color: #858484;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import './styles/ProductListCategory.css'
 import api from '../api/api'
@@ -7,32 +8,49 @@ import Loader from './Loader'
 import ProductCard from './ProductCard'
 
 class ProductListCategory extends React.Component {
-    state = {data: {}, isLoading: true, isCategoryValid: true}
+    state = {category: null, data: {}, isLoading: true, isCategoryValid: true}
+
+    componentDidMount() {
+        this.setCategory(this.props.location)
+    }
 
     componentWillReceiveProps(nextProps) {
-        switch (nextProps.category) {
+        this.setCategory(nextProps.location)
+    }
+
+    setCategory(location) {
+        let url = location.pathname.substring(10)
+        if(!url) {
+            url = 'all'
+        }
+
+        this.validateLocation(url.toLowerCase())
+    }
+
+    validateLocation(category) {
+        switch (category) {
             case 'all':
             case 'tech':
             case 'services':
             case 'office':
-                this.setState({isCategoryValid: true})
-                this.fetchData()
+                this.setState({category, isCategoryValid: true})
+                this.fetchData(category)
                 break;
         
             default:
-                this.setState({data: {}, isLoading: false, isCategoryValid: false})
+                this.setState({category: null, data: {}, isLoading: false, isCategoryValid: false})
                 break;
         }
     }
 
-    fetchData = async () => {
+    fetchData = async (category) => {
         let data = {}
         this.setState({data, isLoading: true})
 
         try
         {
-            data = await api.products.get(this.props.category)
-            
+            data = await api.products.get(category)
+
             if(data) {
                 data.products.sort((a, b) => {return a.name.localeCompare(b.name)})
             }
@@ -67,8 +85,7 @@ class ProductListCategory extends React.Component {
             <React.Fragment>
                 <div className='product-list-head'>
                     Showing <b>{this.state.data.info.totalproducts}</b> products
-                    {this.props.category !== 'all' && <React.Fragment> - hidden<b> {this.state.data.info.hiddenproducts} </b></React.Fragment>}
-                    <b>- TMP TO REMOVE, Current Category: {this.props.category} </b>
+                    {this.state.category !== 'all' && <React.Fragment> - hidden<b> {this.state.data.info.hiddenproducts} </b></React.Fragment>}
                 </div>
                 <div className="product-list">
                     {this.state.data.products.map(product => {
@@ -86,4 +103,4 @@ class ProductListCategory extends React.Component {
     }
 }
 
-export default ProductListCategory
+export default withRouter(ProductListCategory)
