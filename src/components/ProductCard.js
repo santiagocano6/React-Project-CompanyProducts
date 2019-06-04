@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Cell, Card, CardTitle, CardText } from 'react-md';
+import PropTypes from 'prop-types';
 
 import './styles/ProductCard.css'
 
@@ -24,14 +25,9 @@ function ProductCard(props) {
         </Card>
     )
 }
-/*
+
 ProductCard.propTypes = {
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    code: PropTypes.string,
-    children: PropTypes.node,
-    tableCard: PropTypes.bool,
-    className: PropTypes.string,
-};*/
+    product: PropTypes.object.isRequired
+}
 
 export default ProductCard
