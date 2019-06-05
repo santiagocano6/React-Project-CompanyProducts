@@ -47,20 +47,16 @@ class ProductListCategory extends React.Component {
         let data = {}
         this.setState({data, isLoading: true})
 
-        try
-        {
+        try {
             data = await api.products.get(category)
-
-            if(data) {
-                data.products.sort((a, b) => {return a.name.localeCompare(b.name)})
-            }
-        }
-        catch(ex)
-        {
+            data.products.sort((a, b) => {
+                return a.name.localeCompare(b.name)
+            })
+            this.setState({data, isLoading: false})
+        } catch(ex) {
             console.log(ex);
+            this.setState({data: { products: [] }, isLoading: false})
         }
-    
-        this.setState({data, isLoading: false})
     }
 
     render() {
@@ -84,8 +80,8 @@ class ProductListCategory extends React.Component {
         return (
             <React.Fragment>
                 <div className='product-list-head'>
-                    Showing <b>{this.state.data.info.totalproducts}</b> products
-                    {this.state.category !== 'all' && <React.Fragment> - hidden<b> {this.state.data.info.hiddenproducts} </b></React.Fragment>}
+                    Showing <b>{this.state.data.totalproducts}</b> products
+                    {this.state.category !== 'all' && <React.Fragment> - hidden<b> {this.state.data.hiddenproducts} </b></React.Fragment>}
                 </div>
                 <div className="product-list">
                     {this.state.data.products.map(product => {
