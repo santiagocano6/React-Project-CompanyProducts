@@ -2,7 +2,7 @@
   "name": "company-products",
   "version": "0.1.0",
   "engines": {
-    "node": "10.3.0",
+    "node": "6.11.1"
     "npm": "6.4.1"
   },
   "dependencies": {
