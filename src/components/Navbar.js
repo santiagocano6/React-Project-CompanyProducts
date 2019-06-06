@@ -40,16 +40,16 @@ class Navbar extends React.Component {
 
     render() {
             return (
-                <div className='main-bar'>
-                    <div className='menu'>
+                <header className='main-bar'>
+                    <nav className='menu'>
                         {menuItems.map(menuItem => 
                             <Link key={menuItem}
                                 className={`menu-item ${this.state.active === menuItem.toLowerCase() ? 'menu-item-selected' : {}}`}
                                 to={`/${menuItem.toLowerCase()}`}
                             >{menuItem}</Link>
                         )}
-                    </div>
-                </div>
+                    </nav>
+                </header>
             )
         }
 }

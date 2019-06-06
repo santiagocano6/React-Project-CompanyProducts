@@ -10,15 +10,15 @@ function Products() {
 
     return(
         <div className='product'>
-            <div className='product-categories-full'>
+            <aside className='product-categories-full'>
                 <ProductCategoryFull/>
-            </div>
-            <div className='product-categories-min'>
+            </aside>
+            <aside className='product-categories-min'>
                 <ProductCategoryMin/>
-            </div>
-            <div className='product-category-list'>
+            </aside>
+            <article className='product-category-list'>
                 <ProductListCategory/>
-            </div>              
+            </article>              
         </div>
     )
 }

@@ -94,16 +94,16 @@ class ProductListCategory extends React.Component {
 
         return (
             <React.Fragment>
-                <div className='product-list-head'>
+                <section className='product-list-head'>
                     Showing <b>{this.state.data.shownproducts}</b> products
                     {this.state.category !== 'all' && <React.Fragment> - hidden<b> {this.state.data.hiddenproducts} </b></React.Fragment>}
-                </div>
+                </section>
                 <div className="product-list">
                     {this.state.data.products.map(product => {
                         return (
-                            <div key={product.id} className="product-list-item">
+                            <section key={product.id} className="product-list-item">
                                 <ProductCard product={product}/>
-                            </div>
+                            </section>
                         )
                     })
 
