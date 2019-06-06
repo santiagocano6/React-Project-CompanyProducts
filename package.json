@@ -48,5 +48,8 @@
   },
   "devDependencies": {
     "standard": "7.1.2"
+  },
+  "engines": {
+    "node": "10.3.0"
   }
 }

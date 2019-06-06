@@ -24,3 +24,5 @@ yarn-error.log*
 
 # build artifacts
 src/**/*.css
+
+package-lock.json
