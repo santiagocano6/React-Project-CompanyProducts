@@ -37,7 +37,7 @@ async function callApi(category) {
 const api = {
     products: {
         get(category) {
-            //return callFakeApi(category) // Uncomment this line to Call fake API to test app withou backend
+            return callFakeApi(category) // Uncomment this line to Call fake API to test app withou backend
             return callApi(category)
         }
     }
