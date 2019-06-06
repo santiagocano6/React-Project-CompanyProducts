@@ -8,9 +8,24 @@ const randomNumber = (min = 0, max = 1) =>
 const simulateNetworkLatency = (min = 30, max = 1500) =>
   delay(randomNumber(min, max));
 
-async function callFakeApi() {
+async function callFakeApi(category) {
     await simulateNetworkLatency()
-    return Data
+
+    let fakeresponse = {...Data};
+
+    let filteredData
+    if(category === 'all') {
+        filteredData = fakeresponse.products
+    } else {
+        filteredData = fakeresponse.products.filter(product => product.categories.includes(category))
+    }
+
+    fakeresponse.category = category
+    fakeresponse.totalproducts = fakeresponse.products.length
+    fakeresponse.hiddenproducts = fakeresponse.totalproducts - filteredData.length
+    fakeresponse.products = filteredData
+
+    return fakeresponse
 }
 
 async function callApi(category) {
@@ -21,7 +36,7 @@ async function callApi(category) {
 const api = {
     products: {
         get(category) {
-            //return callFakeApi() // Uncomment this line to Call fake API to test app withou backend
+            //return callFakeApi(category) // Uncomment this line to Call fake API to test app withou backend
             return callApi(category)
         }
     }
