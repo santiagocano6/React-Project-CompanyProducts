@@ -95,7 +95,7 @@ class ProductListCategory extends React.Component {
         return (
             <React.Fragment>
                 <div className='product-list-head'>
-                    Showing <b>{this.state.data.totalproducts}</b> products
+                    Showing <b>{this.state.data.shownproducts}</b> products
                     {this.state.category !== 'all' && <React.Fragment> - hidden<b> {this.state.data.hiddenproducts} </b></React.Fragment>}
                 </div>
                 <div className="product-list">

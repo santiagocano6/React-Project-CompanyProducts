@@ -1,6 +1,5 @@
 import Data from './MockData.json'
 import axios from 'axios';
-import { async } from 'q';
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const randomNumber = (min = 0, max = 1) =>
@@ -21,8 +20,8 @@ async function callFakeApi(category) {
     }
 
     fakeresponse.category = category
-    fakeresponse.totalproducts = fakeresponse.products.length
-    fakeresponse.hiddenproducts = fakeresponse.totalproducts - filteredData.length
+    fakeresponse.hiddenproducts = fakeresponse.products.length - filteredData.length
+    fakeresponse.shownproducts = filteredData.length
     fakeresponse.products = filteredData
 
     return fakeresponse
