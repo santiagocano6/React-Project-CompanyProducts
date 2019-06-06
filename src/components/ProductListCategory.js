@@ -6,9 +6,17 @@ import api from '../api/api'
 
 import Loader from './Loader'
 import ProductCard from './ProductCard'
+import ErrorLoadData from './ErrorLoadData'
+
+const PageStatus = {
+    isLoading: 'isLoading',
+    isCategoryInvalid: 'isCategoryInvalid',
+    isError: 'isError',
+    isLoaded: 'isLoaded'
+  }
 
 class ProductListCategory extends React.Component {
-    state = {category: null, data: {}, isLoading: true, isCategoryValid: true}
+    state = {category: null, data: {}, pagestatus: PageStatus.isLoading}
 
     componentDidMount() {
         this.setCategory(this.props.location)
@@ -33,34 +41,36 @@ class ProductListCategory extends React.Component {
             case 'tech':
             case 'services':
             case 'office':
-                this.setState({category, isCategoryValid: true})
+                this.setState({category})
                 this.fetchData(category)
                 break;
         
             default:
-                this.setState({category: null, data: {}, isLoading: false, isCategoryValid: false})
+                this.setState({category: null, data: {}, pagestatus: PageStatus.isCategoryInvalid})
                 break;
         }
     }
 
     fetchData = async (category) => {
         let data = {}
-        this.setState({data, isLoading: true})
+        this.setState({data, pagestatus: PageStatus.isLoading})
 
         try {
             data = await api.products.get(category)
+
             data.products.sort((a, b) => {
                 return a.name.localeCompare(b.name)
             })
-            this.setState({data, isLoading: false})
+
+            this.setState({data, pagestatus: PageStatus.isLoaded})
         } catch(ex) {
             console.log(ex);
-            this.setState({data: { products: [] }, isLoading: false})
+            this.setState({data: { products: [] }, pagestatus: PageStatus.isError})
         }
     }
 
     render() {
-        if(this.state.isLoading) {
+        if(this.state.pagestatus === PageStatus.isLoading) {
             return (
               <div className='loader'>
                 <Loader/>
@@ -68,7 +78,13 @@ class ProductListCategory extends React.Component {
             )
         }
 
-        if(!this.state.isCategoryValid) {
+        if(this.state.pagestatus === PageStatus.isError) {
+            return (
+              <ErrorLoadData/>
+            )
+        }
+
+        if(this.state.pagestatus === PageStatus.isCategoryInvalid) {
             return (
               <div className='invalid-category'>
                 <h1>Ooops!</h1>
