@@ -19,20 +19,19 @@ class ProductListCategory extends React.Component {
     state = {category: null, data: {}, pagestatus: PageStatus.isLoading}
 
     componentDidMount() {
-        this.setCategory(this.props.location)
+        this.setCategory(this.props.match.params.category)
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setCategory(nextProps.location)
+        this.setCategory(nextProps.match.params.category)
     }
 
     setCategory(location) {
-        let url = location.pathname.substring(10)
-        if(!url) {
-            url = 'all'
+        if(!location) {
+            location = 'all'
         }
 
-        this.validateLocation(url.toLowerCase())
+        this.validateLocation(location.toLowerCase())
     }
 
     validateLocation(category) {

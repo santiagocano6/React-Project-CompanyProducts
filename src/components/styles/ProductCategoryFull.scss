@@ -6,7 +6,7 @@ $border-format: 1px solid #c9c9c9;
 }
 
 .product-categories-item-selected {
-    background-color: #dfdfdf;
+    background-color: #e0e0e0;
 }
 
 .product-categories-item {
@@ -15,13 +15,13 @@ $border-format: 1px solid #c9c9c9;
     padding-left: 15px;
     display: block;
     text-decoration: none;
-    color: #000000;
+    color: #444444;
 
     .product-categories-item-icon {
-        background-color: #8d8a8a;
+        background-color: #636363;
         border-radius: 50%;
         padding: 7px;
-        filter: invert(100%);
+        color: #f3f3f2
     }
 
     span {
@@ -37,7 +37,7 @@ $border-format: 1px solid #c9c9c9;
 
 
     .product-categories-tittle {
-        color: #8d8c8c;
+        color: #939493;
         font-size: 18px;
         padding-left: 15px;
         margin-bottom: 10px;

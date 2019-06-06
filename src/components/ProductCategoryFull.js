@@ -8,20 +8,19 @@ class ProductCategoryFull extends React.Component {
     state = {}
 
     componentDidMount() {
-        this.setLocation(this.props.location)
+        this.setLocation(this.props.match.params.category)
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setLocation(nextProps.location)
+        this.setLocation(nextProps.match.params.category)
     }
 
     setLocation(location) {
-        let url = location.pathname.substring(10)
-        if(!url) {
-            url = 'all'
+        if(!location) {
+            location = 'all'
         }
 
-        this.setState({category: url.toLowerCase()})
+        this.setState({category: location.toLowerCase()})
     }
 
     render() { return (

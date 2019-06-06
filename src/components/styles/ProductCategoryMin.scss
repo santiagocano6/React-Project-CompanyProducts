@@ -12,11 +12,18 @@
 .product-categories-min-menu-item {
     display: inline-block;
     font-weight: bold;
-    padding: 15px 0px;
+    padding: 7px 0px;
     text-decoration: none;
     color: black;
     width: 25%;
     height: 50px;
+}
+
+.product-categories-min-menu-icon {
+    background-color: #636363;
+    border-radius: 50%;
+    padding: 7px;
+    color: #f3f3f2;
 }
 
 .product-categories-min-menu-item:hover {
