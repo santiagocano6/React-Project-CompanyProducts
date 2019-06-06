@@ -28,8 +28,10 @@ async function callFakeApi(category) {
     return fakeresponse
 }
 
+const url = 'http://localhost:64143/api/'
+
 async function callApi(category) {
-    let response = await axios.get(`http://localhost:64143/api/Products?category=${category}`)
+    let response = await axios.get(`${url}/Products?category=${category}`)
     return response.data
 }
 

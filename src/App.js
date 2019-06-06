@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import Navbar from './components/Navbar';
@@ -12,15 +12,16 @@ import NotMatch from './components/NotMatch';
 function App() {
     return (
         <BrowserRouter>
-            <div className="general">
-                <Navbar/>
+            <Navbar/>
+            <Switch>
                 <Route exact path='/' component={Home} />
                 <Route path='/home' component={Home} />
                 <Route exact path='/products' component={Products} />
                 <Route path='/products/:category' component={Products} />
                 <Route path='/clients' component={Clients} />
                 <Route path='/contact' component={Contact} />
-            </div>
+                <Route path='*' component={NotMatch}/>
+            </Switch>
         </BrowserRouter>
     );
 }

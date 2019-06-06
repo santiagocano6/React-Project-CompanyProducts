@@ -15,13 +15,20 @@ class Navbar extends React.Component {
     state = {}
 
     componentDidMount(){
-        let currentMenu;
+        this.setLocation(this.props.location)
+    }
 
-        if(this.props.location.pathname === '/') {
+    componentWillReceiveProps(nextProps) {
+        this.setLocation(nextProps.location)
+    }
+
+    setLocation(location) {
+        let currentMenu;
+        if(location.pathname === '/') {
             currentMenu = 'HOME'
         }
         else {
-            currentMenu = menuItems.find(menu => this.props.location.pathname.toLocaleLowerCase().includes(menu.toLocaleLowerCase()))
+            currentMenu = menuItems.find(menu => location.pathname.toLocaleLowerCase().includes(menu.toLocaleLowerCase()))
         }
 
         this.setState({ active: currentMenu ? currentMenu.toLocaleLowerCase() : ''})
@@ -39,7 +46,6 @@ class Navbar extends React.Component {
                             <Link key={menuItem}
                                 className={`menu-item ${this.state.active === menuItem.toLowerCase() ? 'menu-item-selected' : {}}`}
                                 to={`/${menuItem.toLowerCase()}`}
-                                onClick={this._handleClick.bind(this, menuItem)}
                             >{menuItem}</Link>
                         )}
                     </div>
